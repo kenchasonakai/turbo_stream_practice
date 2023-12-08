@@ -7,17 +7,16 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to posts_url, notice: "Post was successfully created."
-    else
-      render :index, status: :unprocessable_entity
-    end
+    @post.save
+    # render :createを省略して使える
+    # create.turbo_stream.erbを探しに行く
   end
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_url, notice: "Post was successfully destroyed."
+    @post.destroy!
+    # render :destroyを省略して使える
+    # destroy.turbo_stream.erbを探しに行く
   end
 
   private
