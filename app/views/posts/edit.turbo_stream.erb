@@ -1,0 +1,1 @@
+<%= turbo_stream.update "post_#{@post.id}", partial: "form", locals: { post: @post, post_form_id: "post_form_#{@post.id}", error_area: "error_messages_#{@post.id}" } %>

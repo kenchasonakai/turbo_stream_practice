@@ -1,5 +1,5 @@
 <div id="<%= dom_id post %>" style="border: solid;padding: 5px; margin: 10px 0">
   <%= post.body %>
-  <%= link_to 'Edit', '#' %>
+  <%= link_to 'Edit', edit_post_path(post), data: { turbo_stream: true } %>
   <%= link_to 'Destroy', post, data: { turbo_confirm: 'Are you sure?', turbo_method: :delete } %>
 </div>

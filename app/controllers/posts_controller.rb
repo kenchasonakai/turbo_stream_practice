@@ -12,6 +12,17 @@ class PostsController < ApplicationController
     # create.turbo_stream.erbを探しに行く
   end
 
+  def edit
+    @post = Post.find(params[:id])
+    # 下記のように書いても動く
+    # render turbo_stream: turbo_stream.replace("post_#{@post.id}", partial: "form", locals: { post: @post })
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+  end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy!

@@ -1,5 +1,5 @@
-<%= form_with model: post, id: "post_form" do |f| %>
-  <div class="error_messages"></div>
+<%= form_with model: post, id: post_form_id do |f| %>
+  <div class=<%= error_area %>></div>
   <div style="display:flex; align-items: center;">
     <%= f.text_field :body, placeholder: '今の気分は？', style: 'margin: 0 5px 0 0;' %>
     <%= f.submit %>
