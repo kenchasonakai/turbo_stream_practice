@@ -2,10 +2,7 @@
 
 <h1>Posts</h1>
 
-<%= form_with model: @post do |f| %>
-    <%= f.text_field :body, placeholder: '今の気分は？' %>
-    <%= f.submit %>
-<% end %>
+<%= render 'form', post: @post %>
 
 <div id="posts">
   <% @posts.each do |post| %>
