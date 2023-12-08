@@ -1,10 +1,10 @@
 <% if @post.errors.any? %>
-  <%= turbo_stream.replace "post_form", partial: "form", locals: { post: @post } %>
+  <%= turbo_stream.replace "post_form", partial: "form", locals: { post: @post, post_form_id: "post_form", error_area: "error_messages" } %>
   <%= turbo_stream.append_all ".error_messages" do %>
     <% @post.errors.full_messages.each do |message| %>
       <%= message %>
     <% end %>
   <% end %>
 <% else %>
-  <%= turbo_stream.prepend "posts", partial: "post", locals: { post: @post } %>
+  <%= turbo_stream.append "posts", partial: "post", locals: { post: @post } %>
 <% end %>
